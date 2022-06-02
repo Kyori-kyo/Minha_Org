@@ -1,0 +1,42 @@
+<template>
+    <lightning-card title="Cotação agora:"> {timeNow}
+        <div style="display: flex; padding: 0 12px 15px;">
+            <div style="display: flex;">
+
+                <div class={usdClass}>
+                    <b>DÓLAR COM.</b>
+                    <div class="cor">
+                        <div class="slds-p-horizontal_small">R$ {usdBid}</div>
+                        <div class="slds-p-horizontal_small"> <span></span>{usdPctChange}%</div>
+                    </div>
+                </div>
+
+                <div class={eurClass}>
+                    <b>EURO</b>
+                    <div class="cor">
+                        <div class="slds-p-horizontal_small">R$ {eurBid}</div>
+                        <div class="slds-p-horizontal_small"> <span></span>{eurPctChange}%</div>
+                    </div>
+                </div>
+
+                <div class={btcClass}>
+                    <b>BITCOIN</b>
+                    <div class="cor">
+                        <div class="slds-p-horizontal_small">R$ {btcBid}</div>
+                        <div class="slds-p-horizontal_small"> <span></span>{btcPctChange}%</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="display: flex; padding: 0 12px 0px;">
+            <p><b>Último request: </b></p>
+            <p class="slds-p-horizontal_small"> {timeVar}</p>
+        </div>
+
+        <lightning-button slot="footer" variant="brand" label="Atualizar" onclick={handleRecarregar}
+            style="padding: 5px 10px">
+        </lightning-button>
+    </lightning-card>
+</template>

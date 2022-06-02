@@ -1,0 +1,36 @@
+<!-- sldsValidatorIgnore -->
+<template>
+
+	<lightning-card title="Produtos">
+		<div class="card">
+			<lightning-input type="search" label="Pesquisa...">
+			</lightning-input>
+
+			<div class="tabela">
+
+				<lightning-datatable if:true={passo1} key-field="Id" data={products} columns={columnsProds}
+					onrowselection={changeTable1} selected-rows={initSelectedRowsProd}>
+				</lightning-datatable>
+
+				<lightning-datatable if:true={passo2} key-field="Id" data={accounts} columns={columnsAccts}
+					onrowselection={changeTable2} selected-rows={initSelectedRowsCli}>
+				</lightning-datatable>
+
+			</div>
+
+			<div class="button" slot="footer">
+				<lightning-button variant="brand" label="Avançar" title="Foward" onclick={handleNext}
+					class="slds-m-left_x-small buttonFoward">
+				</lightning-button>
+
+				<lightning-button variant="neutral" label="Voltar" title="Backward" onclick={handleBack}
+					class="slds-m-left_x-small buttonBackward">
+				</lightning-button>
+			</div>
+		</div>
+	</lightning-card>
+
+</template>
+
+<!-- <lightning-datatable if:true={passo3} key-field="Id" data={contacts} columns={columnsCtts}>
+</lightning-datatable> -->

@@ -1,0 +1,145 @@
+<!-- sldsValidatorIgnore -->
+<template>
+	<lightning-card title="Nova oportunidade!!">
+		<div class="card">
+
+			<!-- Pesquisa prods-->
+			<template if:true={passo1}>
+				<div class="pesquisa">
+					<div class="pesquisa-input">
+						<lightning-input value={searchValue} onchange={searchKeyword} type="search" label="Pesquisa...">
+						</lightning-input>
+					</div>
+					<div class="pesquisa-button">
+						<lightning-button variant="brand" label="Pesquisar" onclick={handleSearchKeywordProds}
+							class="slds-var-m-left_x-small">
+						</lightning-button>
+					</div>
+				</div>
+
+				<!-- Tabela prods-->
+				<div class="tabela">
+					<lightning-datatable draft-values={draftValues} onsave={handleSave} onrowselection={changeTableProd}
+						selected-rows={initSelectedRowsProd} key-field="prodId" data={products} columns={columnsProds}>
+					</lightning-datatable>
+				</div>
+			</template>
+
+			<!-- Pesquisa accts -->
+			<template if:true={passo2}>
+				<div class="pesquisa">
+					<div class="pesquisa-input">
+						<lightning-input value={searchValue} onchange={searchKeyword} type="search" label="Pesquisa...">
+						</lightning-input>
+					</div>
+					<div class="pesquisa-button">
+						<lightning-button variant="brand" label="Pesquisar" onclick={handleSearchKeywordClis}
+							class="slds-var-m-left_x-small">
+						</lightning-button>
+					</div>
+				</div>
+
+				<!-- Tabela accts -->
+				<div class="tabela">
+					<lightning-datatable onrowselection={changeTableClis} selected-rows={initSelectedRowsClis}
+						key-field=id data={accounts} columns={columnsAccts}>
+					</lightning-datatable>
+				</div>
+			</template>
+
+			<!-- Pesquisa resultados -->
+			<template class="conclusion" if:true={passo3}>
+
+				<!-- Tabela resultados -->
+				<div class="tabela">
+					<div>
+						<lightning-datatable show-row-number-column hide-checkbox-column
+							onrowselection={changeTableClis} selected-rows={initSelectedRowsClis} key-field=id
+							data={selectedRowsClis} columns={columnsAccts}>
+						</lightning-datatable>
+					</div>
+					<div class="conclusion">
+						<lightning-datatable draft-values={draftValues} onsave={handleSave} show-row-number-column
+							hide-checkbox-column onrowselection={changeTableProd} selected-rows={initSelectedRowsProd}
+							key-field="prodId" data={selectedRowsProd} columns={columnsProds}>
+						</lightning-datatable>
+					</div>
+				</div>
+			</template>
+		</div>
+
+		<!-- Input de imagem com drag and drop -->
+		<template if:false={novoProd}>
+			<lightning-card title="Adicionar produto">
+				<div class="inputImg">
+
+					<lightning-file-upload class="inputImg-DragAndDrop" label="Imagem do produto" name="imageUploader"
+						accept={acceptedFormats} record-id={myRecordId} onuploadfinished={handleUploadFinished}
+						multiple>
+					</lightning-file-upload>
+
+
+
+					<div class="inputs">
+						<lightning-input type="text" name="inputNome" label="Produto"></lightning-input>
+						<!-- type in (date, datetime, time, color, file,c text, email,
+                        password, url, number, checkbox, checkbox-button, toggle, search, tel) -->
+
+						<lightning-input type="number" name="inputQuantidade" label="quantidade"></lightning-input>
+						<!-- type in (date, datetime, time, color, file,c text, email,
+                        password, url, number, checkbox, checkbox-button, toggle, search, tel) -->
+					</div>
+
+					<div class="button">
+						<lightning-button variant="brand" label="Salvar" title="Save" onclick={handleSaveProd}
+							class="slds-var-m-left_x-small">
+						</lightning-button>
+					</div>
+				</div>
+
+
+			</lightning-card>
+
+		</template>
+
+
+		<!-- Botões -->
+		<div slot="footer" class="footer">
+
+			<div>
+				<lightning-button if:false={passo1} variant="Neutral" label="Voltar" onclick={handleBack}
+					class="slds-var-m-left_x-small">
+				</lightning-button>
+
+				<lightning-button if:false={passo3} variant="brand" label="Avançar" onclick={handleNext}
+					class="slds-var-m-left_x-small">
+				</lightning-button>
+
+				<lightning-button if:true={passo3} variant="brand" label="Concluir" onclick={finishAndInsert}
+					class="slds-var-m-left_x-small">
+				</lightning-button>
+			</div>
+
+			<div>
+				<lightning-button if:false={novoProd} variant="brand" label="Novo Produto" onclick={handleProd}
+					class="slds-var-m-left_x-small">
+				</lightning-button>
+			</div>
+		</div>
+	</lightning-card>
+	<!-- ################################################################ -->
+
+
+	<!-- <template for:each={accounts} for:item="acct">
+        <tr class="slds-hint-parent" key={acct.Id}>
+            <td>
+                <div class="slds-truncate">{acct.Name}</div>
+            </td>
+            <td>
+                <div class="slds-truncate">
+                    <lightning-formatted-email value={acct.Email}></lightning-formatted-email>
+                </div>
+            </td>
+        </tr>
+    </template> -->
+</template>

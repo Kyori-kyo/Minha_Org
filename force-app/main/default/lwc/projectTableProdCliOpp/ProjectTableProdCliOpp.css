@@ -1,0 +1,51 @@
+.card {
+    padding: var(--lwc-varSpacingSmall, 0.75rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.pesquisa {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.pesquisa-input {
+    width: 100%;
+}
+
+.tabela {
+    border: var(--lwc-borderWidthThin, 1px) solid var(--lwc-colorBorder, #dddbda);
+    border-radius: 4px;
+    height: 500px;
+    max-height: 500px;
+}
+
+.conclusion {
+    max-height: 437px;
+    height: 437px;
+}
+
+.conclusionProd {
+    border-bottom: #000;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between
+}
+
+.inputImg {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 5px;
+    align-items: center;
+}
+
+.slds-file-selector__input~.slds-file-selector__body {
+    display: flex !important;
+    flex-direction: column !important;
+}

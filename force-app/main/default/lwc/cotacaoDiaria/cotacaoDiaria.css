@@ -1,0 +1,41 @@
+.negativo {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-right: 1px solid #dddbda;
+    border-left: 1px solid #dddbda
+}
+
+.positivo {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-right: 1px solid #dddbda;
+    border-left: 1px solid #dddbda;
+}
+
+.negativo .cor {
+    color: red;
+}
+
+.positivo .cor {
+    color: green;
+}
+
+.negativo .cor span::before {
+    content: "↓ ";
+}
+
+.positivo .cor span::before {
+    content: "↑ +";
+}
+
+.cor {
+    display: flex;
+}
+
+.slds-p-horizontal--small,
+.slds-p-horizontal_small {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+}
