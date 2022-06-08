@@ -2,28 +2,27 @@
     <lightning-card title="Adicionar produto">
         <div class="card">
 
-            <lightning-file-upload label="Imagem do produto" name="imageUploader" accept={acceptedFormats}
-                record-id={myRecordId} onuploadfinished={handleUploadFinished} multiple>
-            </lightning-file-upload>
-
-
-
             <div class="inputs">
-                <lightning-input type="text" name="input1" label="Produto"></lightning-input>
-                <!-- type in (date, datetime, time, color, file,c text, email,
-                password, url, number, checkbox, checkbox-button, toggle, search, tel) -->
 
-                <lightning-input type="number" name="input1" label="Unidades"></lightning-input>
-                <!-- type in (date, datetime, time, color, file,c text, email,
-                password, url, number, checkbox, checkbox-button, toggle, search, tel) -->
+                <lightning-file-upload label="Imagem do produto" name="imageUploader" accept={acceptedFormats}
+                    record-id={myRecordId} onuploadfinished={handleUploadFinished} multiple>
+                </lightning-file-upload>
 
-                <lightning-input type="number" name="input1" label="quantidade"></lightning-input>
-                <!-- type in (date, datetime, time, color, file,c text, email,
-                password, url, number, checkbox, checkbox-button, toggle, search, tel) -->
+
+
+                <lightning-input value={inputNome} onchange={inputChange} type="text" name="inputNome" label="Produto">
+                </lightning-input>
+
+                <lightning-input value={inputPrice} onchange={inputChange} type="number" name="inputPrice"
+                    label="Preço"></lightning-input>
+
+                <lightning-input value={inputQuantity} onchange={inputChange} type="number" name="inputQuantity"
+                    label="Quantidade"></lightning-input>
+
             </div>
 
             <div class="button">
-                <lightning-button variant="brand" label="Salvar" title="Save" onclick={handleClick}
+                <lightning-button variant="brand" label="Salvar" title="Save" onclick={handleSave}
                     class="slds-var-m-left_x-small">
                 </lightning-button>
             </div>

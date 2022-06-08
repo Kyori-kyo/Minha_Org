@@ -120,7 +120,7 @@ public with sharing class Controller_TabelaProdsClisOpps {
         }
     }
 
-    // ------------------Products-------------------------------------------------------------
+// ------------------Products-------------------------------------------------------------
     @AuraEnabled(cacheable=true)
     public static list<TableProds> getProductList(string searchKey) {
 
@@ -164,28 +164,7 @@ public with sharing class Controller_TabelaProdsClisOpps {
         return tableProdsVar;
     }
 
-        
-    //     string searchKeyword = '%' + searchKey + '%';
-        
-    // // lista para guardar os resultados
-    //     list<product2> productList = new list<product2>();
-    
-    // // query nos registros da conta
-    //     for(product2 prodObj : [
-    //         SELECT Id, Name, ProductCode
-    //         FROM Product2
-    //         WHERE Id IN (SELECT Product2Id FROM PricebookEntry WHERE Pricebook2.IsStandard = TRUE) AND name LIKE : searchKeyword
-    //         ]) {
-    //     productList.add(prodObj);
-    //     }
-        
-    //     if(productList.size() == 0){
-    //         throw new AuraHandledException('No Record Found...'); 
-    //     }
-    //     return productList;
-    // }
-
-// ------------------Account-------------------------------------------------------------
+// ------------------ Account -------------------------------------------------------------
     @AuraEnabled(cacheable=true)
     public static list<account> getAccountList(string searchKey) {
         string searchKeyword = '%' + searchKey + '%';
@@ -208,3 +187,4 @@ public with sharing class Controller_TabelaProdsClisOpps {
         return accountList;
     }
 }
+

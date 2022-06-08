@@ -1,24 +1,28 @@
-.negativo {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    border-right: 1px solid #dddbda;
-    border-left: 1px solid #dddbda
+.moeda {
+    border-radius: 4px;
+    background: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 2px 0px;
+    border: solid 1px rgb(201, 201, 201);
 }
 
-.positivo {
+.card_cotacao {
     display: flex;
-    flex-direction: column;
-    text-align: center;
-    border-right: 1px solid #dddbda;
-    border-left: 1px solid #dddbda;
+    padding: 0 12px 15px;
+    position: relative;
 }
 
-.negativo .cor {
+.card_cotacao_each {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.moeda.negativo .cor {
     color: red;
 }
 
-.positivo .cor {
+.moeda.positivo .cor {
     color: green;
 }
 
@@ -38,4 +42,21 @@
 .slds-p-horizontal_small {
     padding-left: 0.5rem !important;
     padding-right: 0.5rem !important;
+}
+
+img {
+    max-width: 25px;
+}
+
+.align_icon_text {
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.3rem;
+}
+
+header.slds-card__header {
+    padding: 0 0rem 0;
+    margin: 0px 0 0.75rem;
 }

@@ -1,42 +1,85 @@
 <template>
-    <lightning-card title="Cotação agora:"> {timeNow}
-        <div style="display: flex; padding: 0 12px 15px;">
-            <div style="display: flex;">
+    <lightning-card>
+        <div class="card_cotacao">
 
-                <div class={usdClass}>
-                    <b>DÓLAR COM.</b>
+            <lightning-spinner if:true={desabilitarBuscarCotacoes} alternative-text="Loading" size="medium">
+            </lightning-spinner>
+
+            <div class="card_cotacao_each">
+
+                <lightning-card class={usdClass}>
+                    <div class="align_icon_text">
+                        <picture>
+                            <source media="(max-width:20px)"
+                                srcset="https://datago--c.visualforce.com/resource/1654200877000/Flags_Btc_Usa_Euw/Flag_USA.png">
+                            <img src="https://datago--c.visualforce.com/resource/1654200877000/Flags_Btc_Usa_Euw/Flag_USA.png"
+                                style="width: 24px;">
+                        </picture>
+
+                        <b> DÓLAR $</b>
+                    </div>
                     <div class="cor">
                         <div class="slds-p-horizontal_small">R$ {usdBid}</div>
                         <div class="slds-p-horizontal_small"> <span></span>{usdPctChange}%</div>
                     </div>
-                </div>
+                </lightning-card>
 
-                <div class={eurClass}>
-                    <b>EURO</b>
+                <lightning-card class={eurClass}>
+                    <div class="align_icon_text">
+                        <picture>
+                            <source media="(max-width:20px)"
+                                srcset="https://datago--c.visualforce.com/resource/1654200877000/Flags_Btc_Usa_Euw/Flag_Europa.svg.png">
+                            <img src="https://datago--c.visualforce.com/resource/1654200877000/Flags_Btc_Usa_Euw/Flag_Europa.svg.png"
+                                style="width: 23px;">
+                        </picture>
+
+                        <b> EURO €</b>
+                    </div>
+
                     <div class="cor">
                         <div class="slds-p-horizontal_small">R$ {eurBid}</div>
                         <div class="slds-p-horizontal_small"> <span></span>{eurPctChange}%</div>
                     </div>
-                </div>
+                </lightning-card>
 
-                <div class={btcClass}>
-                    <b>BITCOIN</b>
+                <lightning-card class={btcClass}>
+                    <div class="align_icon_text">
+                        <picture>
+                            <source media="(max-width:20px)"
+                                srcset="https://datago--c.visualforce.com/resource/1654200877000/Flags_Btc_Usa_Euw/Logo_Bitcoin.png">
+                            <img src="https://datago--c.visualforce.com/resource/1654200877000/Flags_Btc_Usa_Euw/Logo_Bitcoin.png"
+                                style="width: 25px;">
+                        </picture>
+
+                        <b>BITCOIN ₿</b>
+                    </div>
                     <div class="cor">
                         <div class="slds-p-horizontal_small">R$ {btcBid}</div>
                         <div class="slds-p-horizontal_small"> <span></span>{btcPctChange}%</div>
                     </div>
-                </div>
+                </lightning-card>
             </div>
 
         </div>
 
-        <div style="display: flex; padding: 0 12px 0px;">
-            <p><b>Último request: </b></p>
+        <div style="display: flex; padding: 0 12px 0px; font-size: 12px; color: rgb(145 144 141);">
+            <p><b> Último request: </b></p>
             <p class="slds-p-horizontal_small"> {timeVar}</p>
         </div>
 
-        <lightning-button slot="footer" variant="brand" label="Atualizar" onclick={handleRecarregar}
-            style="padding: 5px 10px">
+        <lightning-button disabled={desabilitarBuscarCotacoes} slot="footer" variant="brand" label="Atualizar"
+            onclick={buscarCotacoes} style="padding: 5px 10px">
         </lightning-button>
     </lightning-card>
 </template>
+
+<!-- 
+oferta --
+produto da oferta --
+relacionamento embalagem/oferta --
+relacionamneto oferta/oportunidade ?-Relacionamento_Oferta_Venda__c-?
+oportunidade --
+produto da oportunidade --
+embalagem da oportunidade --
+email disparado --
+-->
